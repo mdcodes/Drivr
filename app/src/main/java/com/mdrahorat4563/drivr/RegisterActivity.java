@@ -37,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity {
                 if (attemptRegister()) {
                     validToast.show();
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
                 }

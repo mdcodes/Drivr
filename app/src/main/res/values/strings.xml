@@ -23,4 +23,5 @@
     <string name="register">Register</string>
     <string name="register_email">Email</string>
     <string name="register_password">Password</string>
+    <string name="title">Drivr</string>
 </resources>

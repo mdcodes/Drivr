@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
                     Toast success = Toast.makeText(context, validToast, duration);
                     emailInput = (EditText) findViewById(R.id.emailInput);
                     passwordInput = (EditText) findViewById(R.id.passwordInput);
-
                     if (emailInput.getText() == null
                             || emailInput.getText().toString().equals("")
                             || passwordInput.getText() == null
@@ -74,6 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                         failure.show();
                     } else if (attemptLogin()) {
                         success.show();
+                        SaveSharedPreference.setUserNameAndPassword(getApplicationContext(),
+                                emailInput.getText().toString(), passwordInput.getText().toString());
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
@@ -90,7 +91,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                finish();
                 startActivity(intent);
+
             }
         });
     }

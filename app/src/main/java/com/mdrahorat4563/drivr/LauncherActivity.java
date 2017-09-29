@@ -2,10 +2,12 @@ package com.mdrahorat4563.drivr;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -105,7 +107,12 @@ public class LauncherActivity extends AppCompatActivity {
 
         new Timer().schedule(new TimerTask() {
             public void run() {
-                startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
+                if (SaveSharedPreference.getUserName(LauncherActivity.this).length() == 0 && SaveSharedPreference.getPassword(LauncherActivity.this).length() == 0){
+                    startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
+                }
+                else{
+                    startActivity(new Intent(LauncherActivity.this, MainActivity.class));
+                }
             }
         }, 3000);
     }
