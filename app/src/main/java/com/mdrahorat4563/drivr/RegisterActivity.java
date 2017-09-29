@@ -24,7 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        registerEmail = (EditText) findViewById(R.id.registerEmail);
+        registerEmail = (EditText) findViewById(R.id.registerUsername);
         registerPassword = (EditText) findViewById(R.id.registerPassword);
         registerConfirmPassword = (EditText) findViewById(R.id.registerConfirmPassword);
         registerButton = (Button) findViewById(R.id.registerButton);
@@ -36,8 +36,9 @@ public class RegisterActivity extends AppCompatActivity {
                 attemptRegister();
                 if (attemptRegister()) {
                     validToast.show();
+                    SaveSharedPreference.setUserNameAndPassword(context, registerEmail.getText().toString(), registerPassword.getText().toString());
                     Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_TASK_ON_HOME | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                     finish();
                 }
@@ -64,6 +65,10 @@ public class RegisterActivity extends AppCompatActivity {
                 registerConfirmPassword.setError("Passwords must match.");
                 isFailed = true;
             }
+            if (registerPassword.getText().toString().length() < 8){
+                registerPassword.setError("Password must be 8 characters or more.");
+                isFailed = true;
+            }
             if (isFailed) {
                 return false;
             }
@@ -74,5 +79,9 @@ public class RegisterActivity extends AppCompatActivity {
         return true;
     }
 
+    public void returnToLogin(View v){
+        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+        startActivity(intent);
+    }
 
 }

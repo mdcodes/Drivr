@@ -13,7 +13,7 @@
     tools:context="com.mdrahorat4563.drivr.RegisterActivity">
 
     <EditText
-        android:id="@+id/registerEmail"
+        android:id="@+id/registerUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/register_email"
@@ -41,4 +41,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit" />
+
+    <Button
+        android:id="@+id/returnToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="returnToLogin"
+        android:text="Return to Login" />
 </LinearLayout>

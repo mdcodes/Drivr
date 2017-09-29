@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
                     Context context = getApplicationContext();
                     Toast failure = Toast.makeText(context, invalidToast, duration);
                     Toast success = Toast.makeText(context, validToast, duration);
-                    emailInput = (EditText) findViewById(R.id.emailInput);
+                    emailInput = (EditText) findViewById(R.id.usernameInput);
                     passwordInput = (EditText) findViewById(R.id.passwordInput);
                     if (emailInput.getText() == null
                             || emailInput.getText().toString().equals("")
@@ -91,7 +91,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-                finish();
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
 
             }
@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
     public boolean attemptLogin() {
         try {
             Context context = getApplicationContext();
-            emailInput = (EditText) findViewById(R.id.emailInput);
+            emailInput = (EditText) findViewById(R.id.usernameInput);
             passwordInput = (EditText) findViewById(R.id.passwordInput);
 
             if (emailInput.getText().toString().equals(dummyEmail)

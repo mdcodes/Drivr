@@ -33,7 +33,9 @@
             tools:layout_editor_absoluteY="442dp"
             android:layout_below="@+id/imageView"
             android:layout_alignRight="@+id/imageView"
-            android:layout_alignEnd="@+id/imageView" />
+            android:layout_alignEnd="@+id/imageView">
+        </Button>
+
 
         <Button
             android:id="@+id/button_dislike"
