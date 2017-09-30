@@ -1,3 +1,8 @@
+/*
+* Name: Michal Drahorat
+* Description: The LauncherActivity class for the Drivr app.
+* */
+
 package com.mdrahorat4563.drivr;
 
 import android.annotation.SuppressLint;

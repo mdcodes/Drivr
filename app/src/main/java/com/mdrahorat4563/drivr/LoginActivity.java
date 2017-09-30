@@ -1,8 +1,6 @@
 /*
 * Name: Michal Drahorat
 * Description: The LoginActivity class for the Drivr app.
-*
-* Revision History:
 * */
 
 package com.mdrahorat4563.drivr;
@@ -98,6 +96,11 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Performs the validations for the initial login
+     * @return
+     */
+    /*TODO: Remove hard-coded login, swap for database values*/
     public boolean attemptLogin() {
         try {
             Context context = getApplicationContext();

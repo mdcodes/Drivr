@@ -1,3 +1,8 @@
+/*
+* Name: Michal Drahorat
+* Description: The MainActivity class for the Drivr app.
+* */
+
 package com.mdrahorat4563.drivr;
 
 import android.content.Intent;
@@ -14,6 +19,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        /*TODO: Add functionality to the main activity*/
     }
 }
