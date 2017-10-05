@@ -1,3 +1,8 @@
+/*
+* Name: Michal Drahorat
+* Description: The Register class for the Drivr app.
+* */
+
 package com.mdrahorat4563.drivr;
 
 import android.content.Context;
@@ -47,6 +52,10 @@ public class RegisterActivity extends AppCompatActivity {
         registerButton.setOnClickListener(registerButtonListener);
     }
 
+    /**
+     * Performs validations for the register activity
+     * @return Either true or false
+     */
     public boolean attemptRegister(){
         try {
             Boolean isFailed = false;
