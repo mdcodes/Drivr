@@ -59,5 +59,7 @@ Description: Landscape layout file for the main activity
             android:layout_alignBottom="@+id/button_dislike"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"></Button>
+
+
     </RelativeLayout>
 </LinearLayout>

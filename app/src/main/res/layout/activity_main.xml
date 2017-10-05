@@ -31,29 +31,31 @@ Description: Portrait layout file for the main activity
             android:contentDescription=""
             tools:ignore="ContentDescription" />
 
-        <Button
+        <ImageButton
             android:id="@+id/button_like"
             style="@style/LikeButton"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignEnd="@+id/imageView"
             android:layout_alignRight="@+id/imageView"
             android:layout_below="@+id/imageView"
             android:layout_marginTop="28dp"
             tools:layout_editor_absoluteX="42dp"
-            tools:layout_editor_absoluteY="442dp" />
+            tools:layout_editor_absoluteY="442dp"
+            android:background="@mipmap/heart"/>
 
 
-        <Button
+        <ImageButton
             android:id="@+id/button_dislike"
             style="@style/DislikeButton"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:layout_alignBaseline="@+id/button_like"
             android:layout_alignBottom="@+id/button_like"
             android:layout_alignLeft="@+id/imageView"
             android:layout_alignStart="@+id/imageView"
             tools:layout_editor_absoluteX="262dp"
-            tools:layout_editor_absoluteY="442dp" />
+            tools:layout_editor_absoluteY="442dp"
+            android:background="@mipmap/x"/>
     </RelativeLayout>
 </LinearLayout>

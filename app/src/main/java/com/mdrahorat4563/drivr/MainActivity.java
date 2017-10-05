@@ -7,18 +7,33 @@ package com.mdrahorat4563.drivr;
 
 import android.content.Intent;
 import android.media.Image;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
+    List<ImageView> cars = new ArrayList<>();
     Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        /*TODO: Add functionality to the main activity*/
+    }
+
+    ImageButton likeButton = (ImageButton) findViewById(R.id.button_like);
+    public void likeButtonClick(){
+
+    }
+
+    public void dislikeButtonClick(){
+
     }
 }
