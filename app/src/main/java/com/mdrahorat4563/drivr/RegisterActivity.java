@@ -74,7 +74,8 @@ public class RegisterActivity extends AppCompatActivity {
                 registerConfirmPassword.setError("Passwords must match.");
                 isFailed = true;
             }
-            if (registerPassword.getText().toString().length() < 8){
+            if (registerPassword.getText().toString().length() < 8 || registerConfirmPassword
+                    .getText().toString().length() < 8){
                 registerPassword.setError("Password must be 8 characters or more.");
                 isFailed = true;
             }

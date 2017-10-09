@@ -26,4 +26,5 @@
     <string name="title">Drivr</string>
     <string name="prompt_username">Username</string>
     <string name="like">Like</string>
+    <string name="action_home">Home</string>
 </resources>
