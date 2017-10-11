@@ -20,7 +20,25 @@ Description: Portrait layout file for the main activity
         android:background="#FFFFFF"
         android:elevation="4dp"
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        android:popupTheme="@style/ThemeOverlay.AppCompat.Light"></android.support.v7.widget.Toolbar>
+        android:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/button_like2"
+                style="@style/LikeButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/message"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="27dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
 
     <RelativeLayout
         android:layout_width="match_parent"

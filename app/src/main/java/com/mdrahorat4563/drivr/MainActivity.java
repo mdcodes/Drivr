@@ -24,6 +24,9 @@ import java.util.List;
 import java.util.ListIterator;
 
 public class MainActivity extends AppCompatActivity {
+
+    List<ImageView> carPics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
