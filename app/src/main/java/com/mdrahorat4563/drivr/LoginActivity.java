@@ -15,12 +15,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 /**
  * A login screen that offers login via email/password.
@@ -33,15 +31,19 @@ public class LoginActivity extends AppCompatActivity {
     public String invalidToast = "Please check your login details.";
     final int duration = Toast.LENGTH_SHORT;
     // UI references.
-    private EditText emailInput;
+    private EditText userName;
     private EditText passwordInput;
+    private LoginModel lm;
+    private DrivrDBHelper dbh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        initObjects();
+
         // Set up the login form
-        final Context context = getApplicationContext();
         passwordInput = (EditText) findViewById(R.id.passwordInput);
         passwordInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -62,24 +64,26 @@ public class LoginActivity extends AppCompatActivity {
                     Context context = getApplicationContext();
                     Toast failure = Toast.makeText(context, invalidToast, duration);
                     Toast success = Toast.makeText(context, validToast, duration);
-                    emailInput = (EditText) findViewById(R.id.usernameInput);
+                    userName = (EditText) findViewById(R.id.usernameInput);
                     passwordInput = (EditText) findViewById(R.id.passwordInput);
-                    if (emailInput.getText() == null
-                            || emailInput.getText().toString().equals("")
-                            || passwordInput.getText() == null
-                            || passwordInput.getText().toString().equals("")) {
-                        failure.show();
-                    } else if (attemptLogin()) {
-                        success.show();
-                        SaveSharedPreference.setUserNameAndPassword(getApplicationContext(),
-                                emailInput.getText().toString(), passwordInput.getText().toString());
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                    if(attemptLogin()) {
+                        if (dbh.checkUser(userName.getText().toString().trim(),
+                                passwordInput.getText().toString().trim())) {
+                            success.show();
+
+                            SaveSharedPreference.setUserNameAndPassword(getApplicationContext(),
+                                    userName.getText().toString().trim(),
+                                    passwordInput.getText().toString().trim());
+                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            startActivity(intent);
+                            finish();
+                        } else {
+                            failure.show();
+                        }
                     }
                 }
                 catch(Exception e){
-                    Log.e("1", "Exception occured on the login");
+                    Log.e("1", e.getMessage());
                 }
             }
         });
@@ -103,22 +107,29 @@ public class LoginActivity extends AppCompatActivity {
     /*TODO: Remove hard-coded login, swap for database values*/
     public boolean attemptLogin() {
         try {
-            Context context = getApplicationContext();
-            emailInput = (EditText) findViewById(R.id.usernameInput);
+            userName = (EditText) findViewById(R.id.usernameInput);
             passwordInput = (EditText) findViewById(R.id.passwordInput);
 
-            if (emailInput.getText().toString().equals(dummyEmail)
-                    && passwordInput.getText().toString().equals(dummyPassword)) {
-                Toast success = Toast.makeText(context, validToast, duration);
-                success.show();
-
-                return true;
+            if (userName.getText().toString().trim().isEmpty()
+                    || userName.getText().toString() == null){
+                userName.setError("Username cannot be empty.");
+                return false;
+            }
+            if (passwordInput.getText().toString().trim().isEmpty()
+                    || passwordInput.getText().toString() == null){
+                passwordInput.setError("Password cannot be null");
+                return false;
             }
         }
         catch(Exception e){
             Log.e("2", "Exception occured on attemptLogin()", e);
         }
-        return false;
+        return true;
+    }
+
+    public void initObjects(){
+        lm = new LoginModel();
+        dbh = new DrivrDBHelper(getApplicationContext());
     }
 }
 
