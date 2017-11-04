@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mdrahorat4563.drivr.Models.LoginModel;
+
 public class RegisterActivity extends AppCompatActivity{
     private EditText registerUsername;
     private EditText registerPassword;
@@ -50,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity{
                         validToast.show();
 
                         String userName = registerUsername.getText().toString().trim().toUpperCase();
-                        String password = registerPassword.getText().toString().trim().toUpperCase();
+                        String password = registerPassword.getText().toString().trim();
                         login.setUserName(userName);
                         login.setPassword(password);
 
@@ -59,17 +61,17 @@ public class RegisterActivity extends AppCompatActivity{
                         SaveSharedPreference.setUserNameAndPassword(context,
                                 registerUsername.getText().toString().trim(),
                                 registerPassword.getText().toString().trim());
-                        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                        Intent intent = new Intent(RegisterActivity.this, ForumActivity.class);
+                        intent.putExtra("userId", login.getLoginId());
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
                                 | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
                         finish();
                     }
-                    else{
+                    else
+                    {
                         invalidToast.show();
                     }
-
-
                 }
             }
         };

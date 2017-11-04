@@ -9,21 +9,19 @@
     </style>
 
     <style name="SplashTheme" parent="Theme.AppCompat.NoActionBar">
-        <item
-            name="android:windowBackground">@drawable/drivr_launcher</item>
+        <item name="android:windowBackground">@drawable/drivr_launcher</item>
     </style>
 
-    <style name="AppTheme" parent="AppBaseTheme">
-    </style>
+    <style name="AppTheme" parent="AppBaseTheme"></style>
 
     <style name="LikeButton">
         <item name="android:background">@drawable/custombutton</item>
-        <item name="android:color">@color/btnLike</item>
+        <item name="android:color">@color/icons</item>
     </style>
 
     <style name="DislikeButton">
         <item name="android:background">@drawable/custombutton</item>
-        <item name="android:color">@color/btnDislike</item>
+        <item name="android:color">@color/icons</item>
     </style>
 
     <style name="FullscreenTheme" parent="AppBaseTheme">
@@ -35,7 +33,11 @@
     </style>
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
+        <item name="android:background">@color/divider</item>
     </style>
+
+    <style name="AppBaseTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppBaseTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

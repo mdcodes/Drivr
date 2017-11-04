@@ -1,4 +1,4 @@
-package com.mdrahorat4563.drivr;
+package com.mdrahorat4563.drivr.Models;
 
 /**
  * Created by Michal Drahorat on 10/18/2017.

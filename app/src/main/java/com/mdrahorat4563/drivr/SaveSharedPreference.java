@@ -17,6 +17,7 @@ import android.preference.PreferenceManager;
 public class SaveSharedPreference {
     static final String PREF_USER_NAME = "username";
     static final String PREF_PASSWORD = "password";
+    static final String CURRENT_ID = "currentId";
 
     /**
      *Gets the SharedPreferences from context
@@ -37,6 +38,14 @@ public class SaveSharedPreference {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_NAME, userName);
         editor.putString(PREF_PASSWORD, password);
+        editor.apply();
+        editor.commit();
+    }
+
+    public static void setCurrentId(Context ctx, int id){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putInt(CURRENT_ID, id);
+
         editor.apply();
         editor.commit();
     }

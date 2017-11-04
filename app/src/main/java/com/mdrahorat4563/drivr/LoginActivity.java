@@ -20,6 +20,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mdrahorat4563.drivr.Models.LoginModel;
+
 /**
  * A login screen that offers login via email/password.
  */
@@ -40,7 +42,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         initObjects();
 
         // Set up the login form
@@ -67,14 +68,14 @@ public class LoginActivity extends AppCompatActivity {
                     userName = (EditText) findViewById(R.id.usernameInput);
                     passwordInput = (EditText) findViewById(R.id.passwordInput);
                     if(attemptLogin()) {
-                        if (dbh.checkUser(userName.getText().toString().trim(),
+                        if (dbh.checkUser(userName.getText().toString().trim().toUpperCase(),
                                 passwordInput.getText().toString().trim())) {
                             success.show();
 
                             SaveSharedPreference.setUserNameAndPassword(getApplicationContext(),
-                                    userName.getText().toString().trim(),
+                                    userName.getText().toString().trim().toUpperCase(),
                                     passwordInput.getText().toString().trim());
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                            Intent intent = new Intent(LoginActivity.this, ForumActivity.class);
                             startActivity(intent);
                             finish();
                         } else {

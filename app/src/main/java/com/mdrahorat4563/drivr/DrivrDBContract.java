@@ -17,30 +17,43 @@ public final class DrivrDBContract {
     public static class DrivrDBEntry implements BaseColumns
     {
         //Table Names
-        public static final String LOGIN_TABLE_NAME = "Login";
+        public static final String LOGIN_TABLE = "Logins";
 
-        public static final String CARS_TABLE_NAME = "Cars";
+        public static final String MANUFACTURER_TABLE = "Manufacturers";
 
-        public static final String MESSAGES_TABLE = "Messages";
+        public static final String POSTS_TABLE = "Posts";
+
+        public static final String FORUM_TABLE = "Forums";
+
+        public static final String MEMBER_FORUM_TABLE = "Forums";
+
 
         //Login Table Columns
-        public static final String LOGIN_ID_TITLE = "_loginid";
+        public static final String LOGIN_ID_TITLE = "loginId";
 
-        public static final String LOGIN_USERNAME_TITLE = "username";
+        public static final String LOGIN_USERNAME_TITLE = "Username";
 
-        public static final String LOGIN_PASSWORD_TITLE = "password";
+        public static final String LOGIN_PASSWORD_TITLE = "Password";
 
-        //Car table columns
-        public static final String CAR_ID = "_carid";
-        public static final String CAR_MAKE = "Make";
-        public static final String CAR_MODEL = "Make";
-        public static final String CAR_YEAR = "Make";
-        public static final String CAR_PICTURE = "Picture";
-        public static final String CAR_OWNER_ID = "ownerId";
+        //Manufacturer table columns
+        public static final String MANUFACTURER_ID = "manId";
+        public static final String MANUFACTURER_NAME = "Name";
+        public static final String MANUFACTURER_LOGO = "Logo";
 
-        //Messages table columns
-        public static final String MESSAGE_ID = "_carid";
-        public static final String MESSAGE_TEXT = "Message";
-        public static final String MESSAGE_SENDER_ID = "senderId";
+        //Posts table columns
+        public static final String POST_ID = "carId";
+        public static final String POST_TEXT = "Post Text";
+        public static final String POST_FORUM_ID = "forumId";
+        public static final String POST_AUTHOR_ID = "authorId";
+
+        //Forum table columns
+        public static final String FORUM_ID = "forumId";
+        public static final String FORUM_NAME = "Name";
+        public static final String FORUM_MANUFACTURER_ID = "manId";
+
+        //Member Forum Table Columns
+        public static final String M_MEMBER_ID = "memberId";
+        public static final String M_FORUM_ID = "forumId";
+        public static final String M_FORUM_NAME = "name";
     }
 }
