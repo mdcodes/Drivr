@@ -53,7 +53,6 @@ public class ForumModel {
                 DrivrDBEntry.MANUFACTURER_NAME
         };
 
-        String sortOrder = DrivrDBEntry.FORUM_NAME + " ASC";
         Cursor cursor = db.query(
                 DrivrDBEntry.MANUFACTURER_TABLE,
                 projection,
@@ -61,10 +60,8 @@ public class ForumModel {
                 null,
                 null,
                 null,
-                sortOrder
+                null
         );
-
-        int count = cursor.getCount();
         if (cursor.moveToFirst()){
             do
             {

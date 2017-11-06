@@ -34,7 +34,7 @@ public class ForumActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 Intent intent = new Intent(ForumActivity.this, PostActivity.class);
-                intent.putExtra("forumId", id);
+                intent.putExtra("forumId", position);
                 startActivity(intent);
             }
         });

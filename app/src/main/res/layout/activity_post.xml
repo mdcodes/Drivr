@@ -18,6 +18,12 @@
             android:background="?attr/colorPrimary"
             app:popupTheme="@style/AppBaseTheme.PopupOverlay" />
 
+        <ListView
+            android:id="@+id/postListView"
+            android:layout_width="wrap_content"
+            android:layout_height="513dp"
+            android:background="#FFFFFF" />
+
     </android.support.design.widget.AppBarLayout>
 
     <android.support.design.widget.FloatingActionButton
@@ -29,10 +35,8 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_menu_add" />
 
-    <ListView
-        android:id="@+id/postListView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"></ListView>
+
+
+
 
 </android.support.design.widget.CoordinatorLayout>

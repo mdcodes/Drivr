@@ -25,13 +25,23 @@ public class PostActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        loadList();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        loadList();
+    }
+
+    public void loadList(){
         final Bundle extras = getIntent().getExtras();
 
         final Context context = getApplicationContext();
 
         final ListView lv = (ListView) findViewById(R.id.postListView);
 
-        final ArrayList<String> list = pm.getPostsForCertainForum(context, extras.getLong("forumId"));
+        final ArrayList<String> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
 
         final StableArrayAdapter adapter =
                 new StableArrayAdapter(context, android.R.layout.simple_list_item_1, list);
@@ -45,7 +55,7 @@ public class PostActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(PostActivity.this, AddPostActivity.class);
                 int userId = (dbh.getCurrentUserId(context));
-                long forumId = extras.getLong("forumId");
+                int forumId = extras.getInt("forumId");
                 intent.putExtra("forumId", forumId);
                 intent.putExtra("userId", userId);
                 startActivity(intent);

@@ -26,9 +26,6 @@ import com.mdrahorat4563.drivr.Models.LoginModel;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity {
-
-    public String dummyEmail = "abc@123.com";
-    public String dummyPassword = "abc123";
     public String validToast = "Welcome back!";
     public String invalidToast = "Please check your login details.";
     final int duration = Toast.LENGTH_SHORT;

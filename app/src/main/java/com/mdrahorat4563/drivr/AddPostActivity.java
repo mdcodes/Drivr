@@ -1,6 +1,7 @@
 package com.mdrahorat4563.drivr;
 
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +22,8 @@ public class AddPostActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_post);
 
+        final Context context = getApplicationContext();
+
         final Bundle extras = getIntent().getExtras();
 
         initObjects();
@@ -40,13 +43,15 @@ public class AddPostActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    long forumId = extras.getLong("forumId");
+                    int postId = dbh.getCurrentAvailablePostId();
+                    int forumId = extras.getInt("forumId");
                     int authorId = extras.getInt("userId");
+                    String text = postText.getText().toString();
 
                     PostsModel post = new PostsModel(
-                            dbh.getCurrentAvailablePostId(),
-                            postText.toString(),
-                            (int) forumId,
+                            postId,
+                            text,
+                            forumId,
                             authorId);
                     dbh.addPost(post);
 
@@ -55,8 +60,12 @@ public class AddPostActivity extends AppCompatActivity {
                     sb.show();
 
                     Intent intent = new Intent(AddPostActivity.this, PostActivity.class);
-                    startActivity(intent);
+                    int userId = (dbh.getCurrentUserId(context));
+                    intent.putExtra("forumId", forumId);
+                    intent.putExtra("userId", userId);
                     finish();
+                    startActivity(intent);
+
                 }
             }
         });

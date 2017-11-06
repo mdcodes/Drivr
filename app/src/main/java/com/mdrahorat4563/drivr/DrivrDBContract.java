@@ -25,7 +25,7 @@ public final class DrivrDBContract {
 
         public static final String FORUM_TABLE = "Forums";
 
-        public static final String MEMBER_FORUM_TABLE = "Forums";
+        public static final String MEMBER_FORUM_TABLE = "Member_Forums";
 
 
         //Login Table Columns
@@ -42,7 +42,7 @@ public final class DrivrDBContract {
 
         //Posts table columns
         public static final String POST_ID = "carId";
-        public static final String POST_TEXT = "Post Text";
+        public static final String POST_TEXT = "postText";
         public static final String POST_FORUM_ID = "forumId";
         public static final String POST_AUTHOR_ID = "authorId";
 

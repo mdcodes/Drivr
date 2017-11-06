@@ -21,6 +21,7 @@ import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.MANUFACTURER_
 import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.MANUFACTURER_NAME;
 import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.MANUFACTURER_LOGO;
 import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.LOGIN_TABLE;
+import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.MEMBER_FORUM_TABLE;
 import static com.mdrahorat4563.drivr.DrivrDBContract.DrivrDBEntry.POSTS_TABLE;
 
 /**
@@ -33,7 +34,7 @@ public class DrivrDBHelper extends SQLiteOpenHelper
     private SQLiteDatabase mDb;
 
     public static final String DB_NAME = "DrivrDB";
-    public static final int DB_VERSION = 1;
+    public static final int DB_VERSION = 2;
 
     public static final String CREATE_LOGIN_TABLES =
             "CREATE TABLE " + LOGIN_TABLE + " (" +
@@ -65,10 +66,10 @@ public class DrivrDBHelper extends SQLiteOpenHelper
 
     public static final String CREATE_MEMBER_FORUM_TABLE =
             "CREATE TABLE " + DrivrDBEntry.MEMBER_FORUM_TABLE + " (" +
-                    DrivrDBEntry.M_FORUM_ID + " INTEGER NOT NULL" +
-                    DrivrDBEntry.M_MEMBER_ID + " INTEGER NOT NULL" +
-                    DrivrDBEntry.M_FORUM_NAME + " STRING" +
-                    "FOREIGN KEY(forumId) REFERENCES Forums(forumId)" +
+                    DrivrDBEntry.M_FORUM_ID + " INTEGER NOT NULL, " +
+                    DrivrDBEntry.M_MEMBER_ID + " INTEGER NOT NULL, " +
+                    DrivrDBEntry.M_FORUM_NAME + " STRING, " +
+                    "FOREIGN KEY(forumId) REFERENCES Forums(forumId), " +
                     "FOREIGN KEY (memberId) REFERENCES Logins(loginId));";
 
 
@@ -95,11 +96,13 @@ public class DrivrDBHelper extends SQLiteOpenHelper
     public static final String DELETE_FORUMS =
             "DROP TABLE IF EXISTS " + FORUM_TABLE;
 
+    public static final String DELETE_MEMBER_FORUM =
+            "DROP TABLE IF EXISTS " + MEMBER_FORUM_TABLE;
+
     public DrivrDBHelper(Context context)
     {
         super(context, DB_NAME, null, DB_VERSION);
     }
-
     public void onCreate(SQLiteDatabase db){
         db.execSQL(CREATE_LOGIN_TABLES);
         db.execSQL(CREATE_MANUFACTURER_TABLES);
@@ -115,6 +118,7 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         db.execSQL(DELETE_MANUFACTURER_ENTRIES);
         db.execSQL(DELETE_FORUMS);
         db.execSQL(DELETE_POSTS_ENTRIES);
+        db.execSQL(DELETE_MEMBER_FORUM);
     }
 
     public void addLogin(LoginModel login)
@@ -195,8 +199,9 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(DrivrDBEntry.POST_FORUM_ID, post.getPostId());
+
         values.put(DrivrDBEntry.POST_TEXT, post.getPostText());
+        values.put(DrivrDBEntry.POST_FORUM_ID, post.getForumId());
         values.put(DrivrDBEntry.POST_AUTHOR_ID, post.getAuthorId());
 
         db.insert(POSTS_TABLE, null, values);

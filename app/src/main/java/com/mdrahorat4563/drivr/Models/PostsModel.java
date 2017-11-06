@@ -62,11 +62,7 @@ public class PostsModel {
         this.authorId = authorId;
     }
 
-    public void addPost(PostsModel post){
-        posts.add(post);
-    }
-
-    public ArrayList<String> getPostsForCertainForum(Context context, long forumId){
+    public ArrayList<String> getPostsForCertainForum(Context context, int forumId){
         final ArrayList<String> postList = new ArrayList<>();
 
         DrivrDBHelper dbh = new DrivrDBHelper(context);
