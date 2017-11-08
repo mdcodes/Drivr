@@ -208,6 +208,15 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         db.close();
     }
 
+    public void deletePost(int id){
+
+        SQLiteDatabase db = getWritableDatabase();
+
+        String selection = DrivrDBEntry.POST_ID + " LIKE ?";
+        String[] selectionArgs = {String.valueOf(id)};
+        db.delete(DrivrDBEntry.POSTS_TABLE, selection, selectionArgs);
+    }
+
     public int getCurrentAvailablePostId(){
         int nextAvailable = 0;
 

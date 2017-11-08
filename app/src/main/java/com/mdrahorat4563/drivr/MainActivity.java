@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         inflater.inflate(R.menu.menu, popup.getMenu());
         popup.show();
     }
-
     public boolean onMenuItemClick(MenuItem item){
         Intent intent;
         switch(item.getItemId()){
