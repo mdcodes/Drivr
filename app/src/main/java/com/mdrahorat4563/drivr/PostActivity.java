@@ -12,6 +12,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -99,9 +100,10 @@ public class PostActivity extends AppCompatActivity {
         Context ctx = getApplicationContext();
         DrivrDBHelper dbh = new DrivrDBHelper(ctx);
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
+        int postId = dbh.getSelectedPostId(ctx, info.position);
         switch (item.getItemId()) {
             case 0:
-                dbh.deletePost(item.getGroupId());
+                dbh.deletePost(postId);
                 loadList();
                 return true;
             default:

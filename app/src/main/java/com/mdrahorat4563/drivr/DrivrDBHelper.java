@@ -212,8 +212,8 @@ public class DrivrDBHelper extends SQLiteOpenHelper
 
         SQLiteDatabase db = getWritableDatabase();
 
-        String selection = DrivrDBEntry.POST_ID + " LIKE ?";
-        String[] selectionArgs = {String.valueOf(id)};
+        String selection = DrivrDBEntry.POST_ID + " = ?";
+        String[] selectionArgs = { String.valueOf(id) };
         db.delete(DrivrDBEntry.POSTS_TABLE, selection, selectionArgs);
     }
 
@@ -276,6 +276,42 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         }
 
         return userId;
+    }
+
+    public int getSelectedPostId(Context context, int searchId){
+        int postId = 0;
+        DrivrDBHelper dbh = new DrivrDBHelper(context);
+        SQLiteDatabase db = dbh.getReadableDatabase();
+
+        String[] columns = {
+                DrivrDBEntry.POST_ID
+        };
+
+        String selection = DrivrDBEntry.POST_ID  + " = ?";
+
+        String[] selectionArgs = {
+                String.valueOf(searchId)
+        };
+
+        Cursor c = db.query(
+                DrivrDBEntry.POSTS_TABLE,
+                columns,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null,
+                null
+        );
+
+        if (c.moveToFirst()){
+            while(c.moveToNext()) {
+                postId = c.getInt(0);
+            }
+        }
+
+        c.close();
+        return postId;
     }
 }
 

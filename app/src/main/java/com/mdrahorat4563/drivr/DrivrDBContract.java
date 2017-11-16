@@ -41,7 +41,7 @@ public final class DrivrDBContract {
         public static final String MANUFACTURER_LOGO = "Logo";
 
         //Posts table columns
-        public static final String POST_ID = "carId";
+        public static final String POST_ID = "postId";
         public static final String POST_TEXT = "postText";
         public static final String POST_FORUM_ID = "forumId";
         public static final String POST_AUTHOR_ID = "authorId";

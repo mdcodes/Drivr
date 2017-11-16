@@ -9,6 +9,7 @@ import com.mdrahorat4563.drivr.DrivrDBHelper;
 import com.mdrahorat4563.drivr.DrivrDBContract.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -70,6 +71,7 @@ public class PostsModel {
         SQLiteDatabase db = dbh.getReadableDatabase();
 
         String[] projection = {
+                DrivrDBEntry.POST_ID,
                 DrivrDBEntry.POST_TEXT
         };
 
@@ -92,7 +94,7 @@ public class PostsModel {
 
         if (cursor.moveToFirst()){
             do{
-                postList.add(cursor.getString(0));
+                postList.add(cursor.getString(1));
             }while(cursor.moveToNext());
         }
         cursor.close();
