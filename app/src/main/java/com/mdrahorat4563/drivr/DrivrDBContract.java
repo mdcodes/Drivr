@@ -45,6 +45,7 @@ public final class DrivrDBContract {
         public static final String POST_TEXT = "postText";
         public static final String POST_FORUM_ID = "forumId";
         public static final String POST_AUTHOR_ID = "authorId";
+        public static final String POST_DELETE_FLAG = "isDeleted";
 
         //Forum table columns
         public static final String FORUM_ID = "forumId";

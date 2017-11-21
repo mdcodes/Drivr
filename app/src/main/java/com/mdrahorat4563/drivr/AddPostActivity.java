@@ -47,12 +47,14 @@ public class AddPostActivity extends AppCompatActivity {
                     int forumId = extras.getInt("forumId");
                     int authorId = extras.getInt("userId");
                     String text = postText.getText().toString();
+                    int isDeleted = 0;
 
                     PostsModel post = new PostsModel(
                             postId,
                             text,
                             forumId,
-                            authorId);
+                            authorId,
+                            isDeleted);
                     dbh.addPost(post);
 
                     Snackbar sb = Snackbar.make(v, "Post successfully created.",

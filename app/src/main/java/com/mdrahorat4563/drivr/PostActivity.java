@@ -27,6 +27,7 @@ import com.mdrahorat4563.drivr.Models.LoginModel;
 import com.mdrahorat4563.drivr.Models.PostsModel;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PostActivity extends AppCompatActivity {
     PostsModel pm = new PostsModel();
@@ -54,12 +55,12 @@ public class PostActivity extends AppCompatActivity {
 
         final ListView lv = (ListView) findViewById(R.id.postListView);
 
-        final ArrayList<String> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
+        final ArrayList<HashMap<Integer, String>> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
 
         registerForContextMenu(lv);
 
-        final StableArrayAdapter adapter =
-                new StableArrayAdapter(context, android.R.layout.simple_list_item_1, list);
+        final StableHashMapAdapter adapter =
+                new StableHashMapAdapter(context, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
 
         registerForContextMenu(lv);
@@ -97,10 +98,11 @@ public class PostActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+        ListView lv = (ListView) findViewById(R.id.postListView);
         Context ctx = getApplicationContext();
         DrivrDBHelper dbh = new DrivrDBHelper(ctx);
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-        int postId = dbh.getSelectedPostId(ctx, info.position);
+        int postId = lv.getSelectedItemPosition();
         switch (item.getItemId()) {
             case 0:
                 dbh.deletePost(postId);
