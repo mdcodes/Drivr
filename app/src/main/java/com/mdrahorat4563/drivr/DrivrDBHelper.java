@@ -121,6 +121,10 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         db.execSQL(DELETE_MEMBER_FORUM);
     }
 
+    /**
+     * Add a new user
+     * @param login
+     */
     public void addLogin(LoginModel login)
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -133,6 +137,11 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         db.close();
     }
 
+    /**
+     * Checks if the username already exists or not
+     * @param userName
+     * @return
+     */
     public boolean checkUser(String userName){
         String[] projection = {
                 DrivrDBEntry.LOGIN_USERNAME_TITLE
@@ -162,6 +171,13 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         }
         return false;
     }
+
+    /**
+     * Checks if the username/password pair up
+     * @param userName
+     * @param password
+     * @return
+     */
     public boolean checkUser(String userName, String password)
     {
         String[] projection = {
@@ -195,6 +211,10 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         return false;
     }
 
+    /**
+     * Adds the post to the database
+     * @param post
+     */
     public void addPost(PostsModel post){
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -208,6 +228,10 @@ public class DrivrDBHelper extends SQLiteOpenHelper
         db.close();
     }
 
+    /**
+     * Removes the post from the database
+     * @param id
+     */
     public void deletePost(int id){
 
         SQLiteDatabase db = getWritableDatabase();

@@ -75,6 +75,12 @@ public class PostsModel {
         this.isDeleted = isDeleted;
     }
 
+    /**
+     * Gets the associated posts for a given ID
+     * @param context
+     * @param forumId
+     * @return
+     */
     public ArrayList<HashMap<Integer, String>> getPostsForCertainForum(Context context, int forumId){
         final ArrayList<HashMap<Integer, String>> postList = new ArrayList<>();
 
