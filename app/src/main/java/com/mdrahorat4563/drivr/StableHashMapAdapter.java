@@ -6,7 +6,10 @@ import android.widget.ArrayAdapter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Michal Drahorat on 11/20/2017.
@@ -24,7 +27,7 @@ public class StableHashMapAdapter extends ArrayAdapter<HashMap<Integer, String>>
     @Override
     public long getItemId(int position){
         HashMap<Integer, String> item = getItem(position);
-        return Long.parseLong(idMap.get(item));
+        return idMap.get(item);
     }
 
     @Override

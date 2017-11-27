@@ -41,7 +41,7 @@ public class LauncherActivity extends AppCompatActivity {
                     startActivity(new Intent(LauncherActivity.this, LoginActivity.class));
                 }
                 else{
-                    startActivity(new Intent(LauncherActivity.this, MainActivity.class));
+                    startActivity(new Intent(LauncherActivity.this, ForumActivity.class));
                 }
             }
         }, 3000);
