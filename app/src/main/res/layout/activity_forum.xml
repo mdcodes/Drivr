@@ -26,6 +26,7 @@
 
     <ListView
         android:id="@+id/forumNameListView"
+        android:theme="@style/CustomListView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/menu_bar">

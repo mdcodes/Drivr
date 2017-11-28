@@ -27,7 +27,7 @@ public class StableHashMapAdapter extends ArrayAdapter<HashMap<Integer, String>>
     @Override
     public long getItemId(int position){
         HashMap<Integer, String> item = getItem(position);
-        return idMap.get(item);
+        return Long.parseLong(idMap.get(item));
     }
 
     @Override
