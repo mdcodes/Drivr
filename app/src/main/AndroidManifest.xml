@@ -37,10 +37,6 @@
             android:label="@string/title_activity_post"
             android:theme="@style/AppBaseTheme" />
         <activity android:name=".AddPostActivity" />
-        <activity
-            android:name=".deleteafter"
-            android:label="@string/title_activity_deleteafter"
-            android:theme="@style/AppBaseTheme"></activity>
     </application>
 
 </manifest>

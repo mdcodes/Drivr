@@ -67,7 +67,6 @@ public class AddPostActivity extends AppCompatActivity {
                     intent.putExtra("userId", userId);
                     finish();
                     startActivity(intent);
-
                 }
             }
         });

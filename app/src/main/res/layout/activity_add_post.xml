@@ -26,14 +26,6 @@
             android:textSize="20sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/addPostButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:src="@android:drawable/btn_plus"
-            android:contentDescription="An image of things" />
-
     </android.support.v7.widget.Toolbar>
 
     <EditText
@@ -46,5 +38,17 @@
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="135dp" />
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/addPostButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custombutton"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@android:drawable/btn_plus" />
+    </RelativeLayout>
 
 </LinearLayout>

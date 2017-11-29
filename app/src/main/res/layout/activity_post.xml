@@ -27,10 +27,9 @@
 
         <ListView
             android:id="@+id/postListView"
-            android:theme="@style/CustomListView"
             android:layout_width="wrap_content"
-            android:layout_height="513dp"
-            android:background="#FFFFFF" />
+            android:background="@android:color/white"
+            android:layout_height="513dp" />
 
     </android.support.design.widget.AppBarLayout>
 
