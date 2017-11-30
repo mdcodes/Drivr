@@ -55,12 +55,12 @@ public class PostActivity extends AppCompatActivity {
 
         final ListView lv = (ListView) findViewById(R.id.postListView);
 
-        final ArrayList<HashMap<Integer, String>> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
+        final ArrayList<String> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
 
         registerForContextMenu(lv);
 
-        final StableHashMapAdapter adapter =
-                new StableHashMapAdapter(context, android.R.layout.simple_list_item_1, list);
+        final StableArrayAdapter adapter =
+                new StableArrayAdapter(context, android.R.layout.simple_list_item_1, list);
         lv.setAdapter(adapter);
 
         registerForContextMenu(lv);

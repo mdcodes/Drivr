@@ -22,6 +22,7 @@ public class PostsModel {
     private String postText;
     private int forumId;
     private int authorId;
+    private int isDeleted;
 
     public int getIsDeleted() {
         return isDeleted;
@@ -30,8 +31,6 @@ public class PostsModel {
     public void setIsDeleted(int isDeleted) {
         this.isDeleted = isDeleted;
     }
-
-    private int isDeleted;
 
     public int getPostId() {
         return postId;
@@ -67,7 +66,8 @@ public class PostsModel {
 
     public PostsModel(){}
 
-    public PostsModel(int postId, String postText, int forumId, int authorId, int isDeleted) {
+    public PostsModel(int postId, String postText, int forumId, int authorId,
+                      int isDeleted) {
         this.postId = postId;
         this.postText = postText;
         this.forumId = forumId;
@@ -81,8 +81,8 @@ public class PostsModel {
      * @param forumId
      * @return
      */
-    public ArrayList<HashMap<Integer, String>> getPostsForCertainForum(Context context, int forumId){
-        final ArrayList<HashMap<Integer, String>> postList = new ArrayList<>();
+    public ArrayList<String> getPostsForCertainForum(Context context, int forumId){
+        final ArrayList<String> postList = new ArrayList<>();
 
         DrivrDBHelper dbh = new DrivrDBHelper(context);
 
@@ -112,9 +112,7 @@ public class PostsModel {
 
         if (cursor.moveToFirst()){
             do{
-                HashMap<Integer, String> post = new HashMap<>();
-                post.put(cursor.getInt(0), cursor.getString(1));
-                postList.add(post);
+                postList.add(cursor.getString(1));;
             }while(cursor.moveToNext());
         }
         cursor.close();

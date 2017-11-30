@@ -61,6 +61,8 @@ public class DrivrDBHelper extends SQLiteOpenHelper
                     DrivrDBEntry.POST_TEXT + " TEXT NOT NULL, " +
                     DrivrDBEntry.POST_FORUM_ID + " INTEGER, " +
                     DrivrDBEntry.POST_AUTHOR_ID + " INTEGER, " +
+                    DrivrDBEntry.POST_AUTHOR_NAME + " STRING, " +
+                    DrivrDBEntry.POST_DELETE_FLAG + " INTEGER, " +
                     " FOREIGN KEY(authorId) REFERENCES Logins(loginId)" +
                     " FOREIGN KEY(forumId) REFERENCES Forums(forumId));";
 
