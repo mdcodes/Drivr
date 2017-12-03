@@ -10,5 +10,5 @@
     <color name="divider">#BDBDBD</color>
     <color name="listview_background">#545454</color>
     <color name="foreground_material_dark">#303031</color>
-    <color name="primary_text_material_dark">#ffffff</color>
+    <color name="primary_text_material_dark">#000000</color>
 </resources>

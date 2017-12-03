@@ -28,13 +28,10 @@
         <item name="android:background">@color/divider</item>
     </style>
 
-<<<<<<< HEAD
     <style name="CustomListView" parent="Base.Widget.AppCompat.ListView">
         <item name="android:textColor">@color/divider</item>
     </style>
 
-=======
->>>>>>> 96de95f63fe0868902a01ec688d107538ea1aebd
     <style name="AppBaseTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppBaseTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
