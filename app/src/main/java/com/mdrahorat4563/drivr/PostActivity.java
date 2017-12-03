@@ -1,6 +1,7 @@
 package com.mdrahorat4563.drivr;
 
 import android.app.Activity;
+import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -29,15 +30,14 @@ import com.mdrahorat4563.drivr.Models.PostsModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PostActivity extends AppCompatActivity {
+public class PostActivity extends ListActivity {
     PostsModel pm = new PostsModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_post);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        StableArrayAdapter2 adapter2 = new StableArrayAdapter2(this, loadList());
 
         loadList();
     }
@@ -48,7 +48,8 @@ public class PostActivity extends AppCompatActivity {
         loadList();
     }
 
-    public void loadList(){
+
+    public ArrayList<PostsModel> loadList(){
         final Bundle extras = getIntent().getExtras();
 
         final Context context = getApplicationContext();
@@ -79,6 +80,7 @@ public class PostActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        return null;
     }
 
     @Override
