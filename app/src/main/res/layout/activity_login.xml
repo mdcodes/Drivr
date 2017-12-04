@@ -83,6 +83,8 @@ Description: Layout file for the login activity
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:onClick="attemptLogin"
+                android:background="@drawable/custombutton"
+                android:backgroundTint="@color/icons"
                 android:text="@string/sign_in"
                 android:textStyle="bold" />
 
@@ -93,6 +95,8 @@ Description: Layout file for the login activity
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/register"
+                android:backgroundTint="@color/icons"
+                android:background="@drawable/custombutton"
                 android:textStyle="bold" />
 
         </LinearLayout>

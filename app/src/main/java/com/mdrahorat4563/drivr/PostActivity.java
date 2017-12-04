@@ -30,14 +30,13 @@ import com.mdrahorat4563.drivr.Models.PostsModel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class PostActivity extends ListActivity {
+public class PostActivity extends AppCompatActivity {
     PostsModel pm = new PostsModel();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        StableArrayAdapter2 adapter2 = new StableArrayAdapter2(this, loadList());
+        setContentView(R.layout.activity_post);
 
         loadList();
     }
@@ -48,7 +47,10 @@ public class PostActivity extends ListActivity {
         loadList();
     }
 
-
+    /**
+     * Populates the listview with items from the database
+     * @return ListView
+     */
     public ArrayList<PostsModel> loadList(){
         final Bundle extras = getIntent().getExtras();
 

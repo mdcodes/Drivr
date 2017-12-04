@@ -10,7 +10,8 @@ Description: Layout file for the launcher activity
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context="com.mdrahorat4563.drivr.LauncherActivity">
+    tools:context="com.mdrahorat4563.drivr.LauncherActivity"
+    android:orientation="horizontal">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
          is needed to present your content, e.g. VideoView, SurfaceView,

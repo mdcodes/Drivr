@@ -22,9 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_post"
-            android:textColor="@color/primary_text"
             android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="@color/icons"/>
 
     </android.support.v7.widget.Toolbar>
 
@@ -35,20 +35,27 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text"
+        android:hint="@string/add_post_text"
         tools:layout_editor_absoluteX="85dp"
         tools:layout_editor_absoluteY="135dp" />
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/addPostButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custombutton"
+            android:id="@+id/add_post_button"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:background="@color/colorAccent"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/ic_menu_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginEnd="16dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:src="@android:drawable/btn_plus" />
-    </RelativeLayout>
+            android:layout_marginBottom="16dp" />
+    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

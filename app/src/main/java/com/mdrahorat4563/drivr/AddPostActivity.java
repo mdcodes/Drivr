@@ -30,7 +30,7 @@ public class AddPostActivity extends AppCompatActivity {
 
         final EditText postText = (EditText) findViewById(R.id.postText);
 
-        ImageButton addPostButton = (ImageButton) findViewById(R.id.addPostButton);
+        ImageButton addPostButton = (ImageButton) findViewById(R.id.add_post_button);
 
         addPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +62,7 @@ public class AddPostActivity extends AppCompatActivity {
                     sb.show();
 
                     Intent intent = new Intent(AddPostActivity.this, PostActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     int userId = (dbh.getCurrentUserId(context));
                     intent.putExtra("forumId", forumId);
                     intent.putExtra("userId", userId);

@@ -36,4 +36,9 @@
     <string name="enter_your_post_here">Enter your post here</string>
     <string name="context_menu_delete">Delete</string>
     <string name="title_activity_deleteafter">deleteafter</string>
+    <string name="add_post_text">Enter your anonymous post text here....</string>
+    <string name="post_title">Posts</string>
+    <string name="button_submit">Submit</string>
+    <string name="return_to_login_button">Return to Login</string>
+    <string name="confirm_password_hint">Confirm Password</string>
 </resources>
