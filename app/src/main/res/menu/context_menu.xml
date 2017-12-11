@@ -4,4 +4,11 @@
         android:id="@+id/deletePost"
         android:title="@string/context_menu_delete"
         />
+    <item
+        android:id="@+id/googleSearch"
+        android:title="@string/search_on_google" />
+    <item
+        android:id="@+id/test"
+        android:title="@string/action_home" />
+
 </menu>

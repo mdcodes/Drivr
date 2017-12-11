@@ -1,0 +1,33 @@
+package com.mdrahorat4563.drivr;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
+
+/**
+ * Created by micha on 12/11/2017.
+ */
+
+public class MyFirebaseInstanceIDService extends Service {
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+//    @Override
+//    public void onTokenRefresh() {
+//        // Get updated InstanceID token.
+//        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+//        Log.d(TAG, "Refreshed token: " + refreshedToken);
+//
+//        // If you want to send messages to this application instance or
+//        // manage this apps subscriptions on the server side, send the
+//        // Instance ID token to your app server.
+//        sendRegistrationToServer(refreshedToken);
+//    }
+}

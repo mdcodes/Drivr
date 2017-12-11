@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
@@ -17,11 +18,13 @@ import android.util.Log;
 import android.view.ContextMenu;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.*;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.mdrahorat4563.drivr.Models.LoginModel;
@@ -88,15 +91,13 @@ public class PostActivity extends AppCompatActivity {
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-
-        String MENU_DELETE = "Delete";
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.context_menu, menu);
 
         if (v.getId() == R.id.postListView){
             ListView lv = (ListView) v;
             AdapterView.AdapterContextMenuInfo acmi = (AdapterView.AdapterContextMenuInfo) menuInfo;
             String postString = (String) lv.getItemAtPosition(acmi.position);
-
-            menu.add("Delete");
         }
     }
 
@@ -107,11 +108,22 @@ public class PostActivity extends AppCompatActivity {
         DrivrDBHelper dbh = new DrivrDBHelper(ctx);
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         int postId = lv.getSelectedItemPosition();
-        switch (item.getItemId()) {
-            case 0:
+        int itemId = item.getItemId();
+        switch (itemId) {
+            case R.id.deletePost:
                 dbh.deletePost(postId);
                 loadList();
                 return true;
+            case R.id.googleSearch:
+                String url = "https://google.com/";
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.setPackage("com.android.chrome");
+                startActivity(intent);
+                return true;
+            case R.id.test:
+                intent = new Intent(PostActivity.this, TabViewSample.class);
+                startActivity(intent);
             default:
                 return super.onContextItemSelected(item);
         }
