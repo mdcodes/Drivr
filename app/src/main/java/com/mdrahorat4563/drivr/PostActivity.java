@@ -2,6 +2,7 @@ package com.mdrahorat4563.drivr;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.app.SearchManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -108,6 +109,7 @@ public class PostActivity extends AppCompatActivity {
         DrivrDBHelper dbh = new DrivrDBHelper(ctx);
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
         int postId = lv.getSelectedItemPosition();
+        String postText = (String) lv.getItemAtPosition(postId);
         int itemId = item.getItemId();
         switch (itemId) {
             case R.id.deletePost:
@@ -115,10 +117,11 @@ public class PostActivity extends AppCompatActivity {
                 loadList();
                 return true;
             case R.id.googleSearch:
-                String url = "https://google.com/";
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.setPackage("com.android.chrome");
+//                String url = "https://google.com/";
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                String term = postText;
+                intent.putExtra(SearchManager.QUERY, term);
+//                intent.setPackage("com.android.chrome");
                 startActivity(intent);
                 return true;
             case R.id.test:
@@ -128,4 +131,5 @@ public class PostActivity extends AppCompatActivity {
                 return super.onContextItemSelected(item);
         }
     }
+
 }

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "238809625980",
+    "firebase_url": "https://drivr-4459a.firebaseio.com",
+    "project_id": "drivr-4459a",
+    "storage_bucket": "drivr-4459a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238809625980:android:a6c10236677865d4",
+        "android_client_info": {
+          "package_name": "com.mdrahorat4563.drivr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "238809625980-t1s555bien38me72kj2pc95ffcp9sllr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mdrahorat4563.drivr",
+            "certificate_hash": "9d47ee7fb655200c920ccf8bb78bbe8f94452457"
+          }
+        },
+        {
+          "client_id": "238809625980-dvpj6669vpffb3dkg0kdj5p75n2bj6qe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvUstUgd93uYjPlvmXGLewr4Albf21qa4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "238809625980-dvpj6669vpffb3dkg0kdj5p75n2bj6qe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
