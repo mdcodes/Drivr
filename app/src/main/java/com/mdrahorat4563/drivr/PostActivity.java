@@ -33,6 +33,7 @@ import com.mdrahorat4563.drivr.Models.PostsModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 public class PostActivity extends AppCompatActivity {
     PostsModel pm = new PostsModel();
@@ -62,7 +63,8 @@ public class PostActivity extends AppCompatActivity {
 
         final ListView lv = (ListView) findViewById(R.id.postListView);
 
-        final ArrayList<String> list = pm.getPostsForCertainForum(context, extras.getInt("forumId"));
+        final ArrayList<String> list =
+                pm.getPostsForCertainForum(context, extras.getInt("forumId"));
 
         registerForContextMenu(lv);
 

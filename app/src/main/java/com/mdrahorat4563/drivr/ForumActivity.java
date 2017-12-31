@@ -2,19 +2,24 @@ package com.mdrahorat4563.drivr;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.PopupMenu;
 
 import com.mdrahorat4563.drivr.Models.ForumModel;
 import com.mdrahorat4563.drivr.Models.PostsModel;
 
 import java.util.ArrayList;
 
-public class ForumActivity extends AppCompatActivity {
+public class ForumActivity extends AppCompatActivity  implements PopupMenu.OnMenuItemClickListener{
     ForumModel fm = new ForumModel();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,5 +43,29 @@ public class ForumActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void showMenu(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+
+        // This activity implements OnMenuItemClickListener
+        popup.setOnMenuItemClickListener(this);
+        popup.inflate(R.menu.menu);
+        popup.show();
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        Intent i;
+        switch (item.getItemId()) {
+            case R.id.logout:
+                return true;
+            case R.id.viewImage:
+                i = new Intent(ForumActivity.this, ImageActivity.class);
+                startActivity(i);
+                return true;
+            default:
+                return false;
+        }
     }
 }

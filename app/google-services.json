@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "238809625980-q84mtbgrf907i6m6gn33ojued3p21jcu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mdrahorat4563.drivr",
+            "certificate_hash": "3f04a217ea923c71d23fe7d49a81ab195d9d81ab"
+          }
+        },
+        {
           "client_id": "238809625980-t1s555bien38me72kj2pc95ffcp9sllr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
