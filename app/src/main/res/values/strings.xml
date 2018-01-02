@@ -45,4 +45,6 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="search_on_google">Search on Google</string>
+    <string name="action_contact">Contact Us</string>
+    <string name="contextbutton">ContextButton</string>
 </resources>

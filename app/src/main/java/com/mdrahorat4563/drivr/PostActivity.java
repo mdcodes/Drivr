@@ -106,16 +106,16 @@ public class PostActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        ListView lv = (ListView) findViewById(R.id.postListView);
+        final ListView lv = (ListView) findViewById(R.id.postListView);
         Context ctx = getApplicationContext();
         DrivrDBHelper dbh = new DrivrDBHelper(ctx);
         AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
-        int postId = lv.getSelectedItemPosition();
-        String postText = (String) lv.getItemAtPosition(postId);
+        int position = lv.getSelectedItemPosition();
+        String postText = (String) lv.getItemAtPosition(position);
         int itemId = item.getItemId();
         switch (itemId) {
             case R.id.deletePost:
-                dbh.deletePost(postId);
+                dbh.deletePost(position);
                 loadList();
                 return true;
             case R.id.googleSearch:
@@ -126,9 +126,6 @@ public class PostActivity extends AppCompatActivity {
 //                intent.setPackage("com.android.chrome");
                 startActivity(intent);
                 return true;
-            case R.id.test:
-                intent = new Intent(PostActivity.this, TabViewSample.class);
-                startActivity(intent);
             default:
                 return super.onContextItemSelected(item);
         }

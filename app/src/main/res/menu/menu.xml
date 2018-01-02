@@ -2,8 +2,8 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/forumList"
-        android:title="@string/action_forums" />
+        android:id="@+id/contact"
+        android:title="@string/action_contact" />
 
     <item
         android:id="@+id/viewImage"

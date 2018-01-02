@@ -2,6 +2,7 @@ package com.mdrahorat4563.drivr;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,8 +57,16 @@ public class ForumActivity extends AppCompatActivity  implements PopupMenu.OnMen
 
     @Override
     public boolean onMenuItemClick(MenuItem item) {
+        String[] emailList = {"mdrahorat4563@conestogac.on.ca"};
         Intent i;
         switch (item.getItemId()) {
+            case R.id.contact:
+                i = new Intent(Intent.ACTION_SEND);
+                i.setType("text/plain");
+                i.putExtra(Intent.EXTRA_EMAIL, emailList);
+                i.putExtra(Intent.EXTRA_SUBJECT, "Contact Us!");
+                startActivity(Intent.createChooser(i, "Choose an app to handle the request..."));
+                return true;
             case R.id.logout:
                 return true;
             case R.id.viewImage:

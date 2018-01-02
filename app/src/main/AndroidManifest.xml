@@ -32,16 +32,18 @@
         <activity
             android:name=".RegisterActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ForumActivity" />
+        <activity android:name=".ForumActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+                <data android:scheme="mailto" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".PostActivity"
             android:label="@string/title_activity_post"
             android:theme="@style/AppBaseTheme" />
         <activity android:name=".AddPostActivity" />
-        <activity
-            android:name=".TabViewSample"
-            android:label="@string/title_activity_tab_view_sample"
-            android:theme="@style/AppBaseTheme" />
 
         <service android:name=".MyFirebaseMessagingService">
             <intent-filter>
